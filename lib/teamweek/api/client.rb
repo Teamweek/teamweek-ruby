@@ -2,6 +2,7 @@ module Teamweek
   module Api
     class Client
       include HTTParty
+      include Api::ResponseHandler
       format :json
       # Initializes the Teamweek API shared client with information
       # required to communicate with Teamweek
@@ -19,13 +20,10 @@ module Teamweek
       # @param users: an array of users data as hash.
       # @return [Teamweek::Api::User] the added or found Teamweek user instances
       def import_users(users)
-        params = {
-          body: {users: users}
-        }
-        response = self.class.post '/users/bulk_import.json', params
-        response.parsed_response.map { |h| Teamweek::Api::User.new(h) }
+        params = { body: { users: users } }
+        request = self.class.post '/users/bulk_import.json', params
+        handle_response(request, Teamweek::Api::User)
       end
-
     end
   end
 end
