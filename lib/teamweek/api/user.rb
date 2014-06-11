@@ -10,6 +10,19 @@ module Teamweek
       attr_accessor :initials
       attr_accessor :color
       attr_accessor :foreign_id
+      attr_accessor :active
+
+      def to_hash
+        {
+          id: id,
+          name: name,
+          email: email,
+          dummy: dummy,
+          initials: initials,
+          color: color,
+          active: active
+        }
+      end
     end
   end
 end
