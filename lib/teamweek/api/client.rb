@@ -3,9 +3,10 @@ module Teamweek
     class Client
       attr_accessor :client
 
-      def initialize(account_id, client)
+      def initialize(client, account_id, opts={})
         @client = client
-        @client.base_uri("/api/v3/#{account_id}/")
+        base_uri = opts[:base_uri] || "https://teamweek.com"
+        @client.base_uri("#{base_uri}/api/v3/#{account_id}/")
       end
 
       # Posts users to Teamweek bulk_import url.
