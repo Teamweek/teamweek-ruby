@@ -6,7 +6,7 @@ module Teamweek
       def initialize(client, account_id, opts={})
         @client = client
         base_uri = opts[:base_uri] || "https://teamweek.com"
-        @client.base_uri("#{base_uri}/api/v3/#{account_id}/")
+        @client.base_uri("#{base_uri}/api/v3/#{account_id}")
       end
 
       # Posts users to Teamweek bulk_import url.
