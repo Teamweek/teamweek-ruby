@@ -1,18 +1,11 @@
 module Teamweek
   module Api
     class Client
-      include HTTParty
-      include Api::ResponseHandler
-      format :json
-      # Initializes the Teamweek API shared client with information
-      # required to communicate with Teamweek
-      #
-      # @param access_token: string, the Teamweek access token
-      # @param account_id: integer, account id in Teamweek
-      def initialize(account_id, access_token, opts = {})
-        base_uri = opts[:base_uri] || "https://teamweek.com"
-        self.class.base_uri "#{base_uri}/api/v3/#{account_id}/"
-        self.class.headers.merge!("Authorization" => "Bearer #{access_token}")
+      attr_accessor :client
+
+      def initialize(account_id, client)
+        @client = client
+        @client.base_uri("/api/v3/#{account_id}/")
       end
 
       # Posts users to Teamweek bulk_import url.
@@ -21,8 +14,8 @@ module Teamweek
       # @return [Teamweek::Api::User] the added or found Teamweek user instances
       def import_users(users)
         params = { body: { users: users } }
-        request = self.class.post '/users/bulk_import.json', params
-        handle_response(request, Teamweek::Api::User)
+        request = client.post '/users/bulk_import.json', params
+        request.parsed_response.map { |h| Teamweek::Api::User.new(h) }
       end
     end
   end

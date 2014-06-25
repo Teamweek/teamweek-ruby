@@ -1,6 +1,3 @@
-require 'httparty'
 require 'json'
-require 'teamweek/api/response/response_handler'
-require 'teamweek/api/response/errors'
 require 'teamweek/api/client'
 require 'teamweek/api/user'
