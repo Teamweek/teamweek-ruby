@@ -18,6 +18,16 @@ module Teamweek
         request = client.post '/users/bulk_import.json', params
         request.parsed_response.map { |h| Teamweek::Api::User.new(h) }
       end
+
+      # Posts projects to Teamweek bulk_import url.
+      #
+      # @param projects: an array of projects data as hash.
+      # @return [Teamweek::Api::Project] the added or found Teamweek project instances
+      def import_users(projects)
+        params = { body: { projects: projects } }
+        request = client.post '/projects/bulk_import.json', params
+        request.parsed_response.map { |h| Teamweek::Api::Project.new(h) }
+      end
     end
   end
 end
