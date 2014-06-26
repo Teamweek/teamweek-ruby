@@ -23,7 +23,7 @@ module Teamweek
       #
       # @param projects: an array of projects data as hash.
       # @return [Teamweek::Api::Project] the added or found Teamweek project instances
-      def import_users(projects)
+      def import_projects(projects)
         params = { body: { projects: projects } }
         request = client.post '/projects/bulk_import.json', params
         request.parsed_response.map { |h| Teamweek::Api::Project.new(h) }
