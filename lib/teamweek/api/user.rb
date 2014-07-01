@@ -2,7 +2,7 @@ require "teamweek/api/hash_constructed"
 module Teamweek
   module Api
     class User
-      include HashConstructed
+      include Teamweek::Api::HashConstructed
       attr_accessor :id
       attr_accessor :name
       attr_accessor :email
