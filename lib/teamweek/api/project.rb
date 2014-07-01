@@ -1,4 +1,3 @@
-require "teamweek/api/hash_constructed"
 module Teamweek
   module Api
     class Project
