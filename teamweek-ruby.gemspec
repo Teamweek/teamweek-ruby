@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Toggl OÜ']
   spec.email         = ['support@teamweek.com']
   spec.summary       = %q{Ruby gem to communicate with Teamweek API.}
-  spec.homepage      = ''
+  spec.homepage      = 'https://github.com/teamweek/teamweek-ruby'
   spec.license       = 'MIT'
 
   spec.files         = ['lib/teamweek-ruby.rb']
