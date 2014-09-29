@@ -1,5 +1,8 @@
 A very lightweight ruby library without an http client to communicate with Teamweek API
 
+[![Gem Version](https://badge.fury.io/rb/teamweek-ruby.svg)](http://badge.fury.io/rb/teamweek-ruby)
+
+
 ### Why clientless?
 
 When integrating with more than one remote API (e.g. Teamweek and Basecamp) you
