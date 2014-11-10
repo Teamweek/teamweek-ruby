@@ -45,7 +45,7 @@ The HTTP client that is passed to the Teamweek::Api::Client must implement the f
 
 ### Building and using the gem
 
-if you want to test your changes, build and install the gem in your machine.
+If you want to test your changes, build and install the gem in your machine (see more at http://guides.rubygems.org/make-your-own-gem/).
 
 ```sh
 % gem build teamweek-ruby.gemspec
