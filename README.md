@@ -28,6 +28,7 @@ The HTTP client that is passed to the Teamweek::Api::Client must implement the f
       @headers = { "Authorization" => "Bearer #{access_token}", "User-Agent"  => "Teamweek Ruby" }
     end
 
+    #method required by teamweek-ruby
     def post(path, params)
       #response and error handling can be done here
       HTTParty.post(path, { headers: headers, body: params })
