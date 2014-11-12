@@ -6,12 +6,12 @@ require 'teamweek/api/version'
 Gem::Specification.new do |spec|
   spec.name          = 'teamweek-ruby'
   spec.version       = Teamweek::Api::VERSION
-  spec.authors       = ['Toggl OÜ']
+  spec.authors       = ['Toggl LLC']
   spec.email         = ['support@teamweek.com']
   spec.summary       = %q{Ruby gem to communicate with Teamweek API.}
   spec.description   = 'A very lightweight ruby library without an http client to communicate with Teamweek API'
   spec.homepage      = 'https://github.com/teamweek/teamweek-ruby'
-  spec.license       = 'MIT'
+  spec.license       = 'BSD-3-Clause'
 
   spec.files         = ['lib/teamweek-ruby.rb']
   spec.files        += Dir.glob('lib/teamweek/api/*.rb')
