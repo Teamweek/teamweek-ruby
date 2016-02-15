@@ -39,6 +39,14 @@ module Teamweek
         get_resource('tasks', params, Teamweek::Api::Task)
       end
 
+      def export_projects
+        get_resource('tasks', nil, Teamweek::Api::Project)
+      end
+
+      def export_users
+        get_resource('users', nil, Teamweek::Api::User)
+      end
+
       private
 
       def set_base_uri(site, account_id)
