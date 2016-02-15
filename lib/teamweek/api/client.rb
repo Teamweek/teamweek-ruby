@@ -35,16 +35,44 @@ module Teamweek
         bulk_import('tasks', data, Teamweek::Api::Task)
       end
 
+      # Get tasks to Teamweek get_resource url.
+      #
+      #@param tasks: a hash of options to filter
+      #@return a collection of Teamweek::Api::Task
       def export_tasks(params={})
         get_resource('tasks', params, Teamweek::Api::Task)
       end
 
+      # Get projects to Teamweek get_resource url.
+      #
+      #@param projects: api not support options
+      #@return a collection of Teamweek::Api::Project
       def export_projects
         get_resource('tasks', nil, Teamweek::Api::Project)
       end
 
+      # Get users to Teamweek get_resource url.
+      #
+      #@param users: api not support options
+      #@return a collection of Teamweek::Api::User
       def export_users
         get_resource('users', nil, Teamweek::Api::User)
+      end
+
+      # Get milestones to Teamweek get_resource url.
+      #
+      #@param milestones: a hash of options to filter
+      #@return a collection of Teamweek::Api::Milestone
+      def export_milestones(params={})
+        get_resource('milestones', params, Teamweek::Api::Milestone)
+      end
+
+      # Get groups to Teamweek get_resource url.
+      #
+      #@param groups: a hash of options to filter
+      #@return a collection of Teamweek::Api::Milestone
+      def export_groups
+        get_resource('groups', nil, Teamweek::Api::Group)
       end
 
       private
