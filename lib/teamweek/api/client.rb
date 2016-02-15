@@ -54,9 +54,9 @@ module Teamweek
         @base_uri = "#{site}/api/v3/#{account_id}"
       end
 
-       def full_path(uri)
-         base_uri + uri
-       end
+      def full_path(uri)
+        base_uri + uri
+      end
     end
   end
 end
