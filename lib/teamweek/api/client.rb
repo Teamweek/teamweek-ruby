@@ -2,6 +2,7 @@ module Teamweek
   module Api
     class Client
       include Teamweek::Api::Importer
+      include Teamweek::Api::Exporter
       attr_accessor :client
       attr_accessor :base_uri
 
@@ -34,9 +35,8 @@ module Teamweek
         bulk_import('tasks', data, Teamweek::Api::Task)
       end
 
-      def fetch_tasks(params={})
-        response = client.get(task_path(params), params)
-        response = response.map { |h| Teamweek::Api::Task.new(h) }
+      def export_tasks(params={})
+        get_resource('tasks', params, Teamweek::Api::Task)
       end
 
       private
@@ -48,12 +48,6 @@ module Teamweek
 
        def full_path(uri)
          base_uri + uri
-       end
-
-       def task_path(params)
-         filter_param = params[:filter]
-         return full_path("/tasks/#{filter_param}?") if filter_param
-         full_path('/tasks')
        end
     end
   end

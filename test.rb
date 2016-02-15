@@ -10,5 +10,5 @@ since_date = "2016-02-15T00:00:00.000+00:00"
 until_date = "2016-02-15T00:00:00.000+00:00"
 filter = 'timeline'
 
-req = Teamweek::Api::Client.new(http_client, 181896).fetch_tasks(filter: filter, since: since_date, until: until_date)
+req = Teamweek::Api::Client.new(http_client, 181896).export_tasks(filter: filter, since: since_date, until: until_date)
 puts ">>>>>> #{req}"
